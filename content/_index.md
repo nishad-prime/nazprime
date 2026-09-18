@@ -2,4 +2,4 @@
 title: Home
 ---
 
-I'm Nasir. This site is my workshop, notebook, and small archive — things taken apart, things built back better.
+I make things and take them apart — software, hardware, ideas — to figure out what makes them tick. Sometimes they go back together working better. Sometimes they become something else entirely.

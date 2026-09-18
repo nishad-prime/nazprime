@@ -1,26 +1,98 @@
 {{ define "main" }}
 <div class="mx-auto w-full max-w-3xl px-5 sm:px-6">
+  {{ $now := site.GetPage "/now" }}
+  {{ $projects := site.GetPage "/projects" }}
+  {{ $lab := site.GetPage "/lab" }}
+  {{ $notes := site.GetPage "/notes" }}
+
   <header class="pb-14 pt-16 sm:pb-20 sm:pt-24">
     <h1 class="text-4xl font-semibold tracking-tight sm:text-5xl">nazprime</h1>
-    <p class="mt-3 font-mono text-sm text-muted">— my corner of the internet</p>
+    <p class="mt-3 font-mono text-sm text-muted">Nasir Hossain — my corner of the internet</p>
     <p class="mt-10 max-w-xl text-xl leading-relaxed sm:text-2xl">Taking things apart to build ’em back better.</p>
     <div class="prose mt-6">
       {{ .Content }}
     </div>
   </header>
-  <section>
-    <h2 class="font-mono text-sm text-muted">index</h2>
+
+  {{ with $now }}
+  <section aria-labelledby="now-heading">
+    <h2 id="now-heading" class="font-mono text-sm text-muted">now</h2>
+    <div class="prose mt-4">
+      {{ .Content }}
+    </div>
+    <p class="mt-3 font-mono text-sm"><a href="{{ .RelPermalink }}" class="text-muted transition-colors duration-150 hover:text-accent">→ the full now page</a></p>
+  </section>
+  {{ end }}
+
+  {{ with $projects }}
+  {{ with first 2 .RegularPagesRecursive }}
+  <section aria-labelledby="made-heading" class="mt-16 sm:mt-20">
+    <h2 id="made-heading" class="font-mono text-sm text-muted">things I’ve made</h2>
     <ol class="mt-4">
-      {{ range $i, $e := site.Menus.main }}
-      <li class="group flex items-baseline gap-4 border-t border-rule py-4 last:border-b sm:gap-6 sm:py-5">
-        <span aria-hidden="true" class="font-mono text-sm text-muted transition-colors duration-150 group-hover:text-accent">{{ printf "%02d" (add $i 1) }}</span>
+      {{ range $i, $e := . }}
+      <li class="group flex items-baseline gap-4 border-t border-rule py-4 last:border-b sm:gap-6">
+        <span aria-hidden="true" class="shrink-0 font-mono text-sm text-muted transition-colors duration-150 group-hover:text-accent">{{ printf "%02d" (add $i 1) }}</span>
         <div class="min-w-0">
-          <a href="{{ .URL }}" class="font-medium text-ink underline decoration-rule underline-offset-4 transition-colors duration-150 hover:decoration-accent">{{ .Name }}</a>
-          {{ with .Page }}{{ with .Description }}<p class="mt-1 text-sm text-muted">{{ . }}</p>{{ end }}{{ end }}
+          <a href="{{ .RelPermalink }}" class="font-medium text-ink underline decoration-rule underline-offset-4 transition-colors duration-150 hover:decoration-accent">{{ .LinkTitle }}</a>
+          {{ with .Summary }}<p class="mt-1 text-sm text-muted">{{ . | transform.Plainify }}</p>{{ end }}
         </div>
       </li>
       {{ end }}
     </ol>
+    {{ with $projects }}
+    <p class="mt-3 font-mono text-sm"><a href="{{ .RelPermalink }}" class="text-muted transition-colors duration-150 hover:text-accent">→ all projects</a></p>
+    {{ end }}
   </section>
+  {{ end }}
+  {{ end }}
+
+  {{ with $lab }}
+  {{ with first 2 .RegularPagesRecursive }}
+  <section aria-labelledby="lab-heading" class="mt-16 sm:mt-20">
+    <h2 id="lab-heading" class="font-mono text-sm text-muted">from the lab</h2>
+    <ol class="mt-4">
+      {{ range . }}
+      <li class="flex items-baseline justify-between gap-4 border-t border-rule py-3.5 last:border-b">
+        <div class="min-w-0">
+          <a href="{{ .RelPermalink }}" class="font-medium text-ink underline decoration-rule underline-offset-4 transition-colors duration-150 hover:decoration-accent">{{ .LinkTitle }}</a>
+          {{ with .Summary }}<p class="mt-1 text-sm text-muted">{{ . | transform.Plainify }}</p>{{ end }}
+        </div>
+        {{ with .Params.status }}
+        <span class="shrink-0 font-mono text-sm text-muted">{{ . }}</span>
+        {{ end }}
+      </li>
+      {{ end }}
+    </ol>
+    {{ with $lab }}
+    <p class="mt-3 font-mono text-sm"><a href="{{ .RelPermalink }}" class="text-muted transition-colors duration-150 hover:text-accent">→ into the lab</a></p>
+    {{ end }}
+  </section>
+  {{ end }}
+  {{ end }}
+
+  {{ with $notes }}
+  {{ with first 3 .RegularPagesRecursive }}
+  <section aria-labelledby="notes-heading" class="mt-16 sm:mt-20">
+    <h2 id="notes-heading" class="font-mono text-sm text-muted">recent notes</h2>
+    <ol class="mt-4">
+      {{ range . }}
+      <li class="flex items-baseline gap-4 border-t border-rule py-2.5 last:border-b sm:gap-6">
+        {{ if not .Date.IsZero }}
+        <time datetime="{{ .Date.Format "2006-01-02" }}" class="shrink-0 font-mono text-sm text-muted">{{ .Date.Format "2006-01-02" }}</time>
+        {{ else }}
+        <span aria-hidden="true" class="shrink-0 font-mono text-sm text-muted">—</span>
+        {{ end }}
+        <a href="{{ .RelPermalink }}" class="text-ink underline decoration-rule underline-offset-4 transition-colors duration-150 hover:decoration-accent">{{ .LinkTitle }}</a>
+      </li>
+      {{ end }}
+    </ol>
+    {{ with $notes }}
+    <p class="mt-3 font-mono text-sm"><a href="{{ .RelPermalink }}" class="text-muted transition-colors duration-150 hover:text-accent">→ all notes</a></p>
+    {{ end }}
+  </section>
+  {{ end }}
+  {{ end }}
+
+  <p class="mt-16 border-t border-rule pt-6 text-muted sm:mt-20">This is a personal place — a workshop and a notebook, not a résumé. {{ with site.GetPage "/about" }}<a href="{{ .RelPermalink }}" class="text-ink underline decoration-rule underline-offset-4 transition-colors duration-150 hover:decoration-accent">More about me</a>.{{ end }}</p>
 </div>
 {{ end }}
