@@ -1,0 +1,25 @@
+<header class="border-b border-rule">
+  <div class="mx-auto flex w-full max-w-3xl flex-wrap items-baseline gap-x-8 gap-y-2 px-5 py-4 sm:px-6 sm:py-5">
+    <a href="{{ site.Home.RelPermalink }}" class="font-mono text-ink">nazprime</a>
+    <nav aria-label="Main" class="ml-auto">
+      <ul class="flex flex-wrap items-baseline gap-x-5 gap-y-1 font-mono text-sm">
+        {{ $page := . }}
+        {{ range site.Menus.main }}
+        <li>
+          {{ if $page.IsMenuCurrent .Menu . }}
+          <a href="{{ .URL }}" aria-current="page" class="text-ink">{{ .Name }}</a>
+          {{ else }}
+          <a href="{{ .URL }}" class="text-muted transition-colors duration-150 hover:text-ink">{{ .Name }}</a>
+          {{ end }}
+        </li>
+        {{ end }}
+        <li>
+          <button id="theme-toggle" type="button" aria-label="Toggle dark mode" class="text-muted transition-colors duration-150 hover:text-ink">
+            <svg class="h-4 w-4 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            <svg class="hidden h-4 w-4 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
