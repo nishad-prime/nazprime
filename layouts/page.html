@@ -6,6 +6,7 @@
       {{ with .Description }}<p class="mt-3 max-w-xl text-lg text-muted">{{ . }}</p>{{ end }}
       <div class="mt-4 flex flex-wrap gap-x-6 gap-y-1 font-mono text-sm text-muted">
         {{ if not .Date.IsZero }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>{{ end }}
+        {{ if and (not .Lastmod.IsZero) (ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}<time datetime="{{ .Lastmod.Format "2006-01-02" }}">updated {{ .Lastmod.Format "2006-01-02" }}</time>{{ end }}
         {{ with .Params.status }}<span>status: {{ . }}</span>{{ end }}
         {{ with .Params.tech }}<span>built with {{ delimit . ", " }}</span>{{ end }}
       </div>
