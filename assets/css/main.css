@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @source "hugo_stats.json";
+@import "highlight.css";
+@import "highlight-dark.css";
 
 /*
   nazprime — visual foundation.
@@ -39,6 +41,7 @@
 
 :root {
   color-scheme: light;
+  --default-mono-font-family: var(--font-mono);
   --paper: #faf7f1;
   --ink: #1b1815;
   --muted: #6f6a63;

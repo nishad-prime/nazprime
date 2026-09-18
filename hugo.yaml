@@ -20,6 +20,9 @@ menus:
   - name: About
     pageRef: /about
     weight: 50
+markup:
+  highlight:
+    noClasses: false
 build:
   buildStats:
     enable: true
