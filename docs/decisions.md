@@ -11,11 +11,12 @@ Durable choices that shape this project. Implementation details live in the code
 
 ## Identity
 
-- **nazprime is a personal corner of the internet** — a workshop, laboratory, and notebook. It is intentionally not a developer portfolio, résumé, or personal brand site.
+- **nazprime is a personal corner of the internet**: a workshop, laboratory, and notebook. It is intentionally not a developer portfolio, résumé, or personal brand site.
 - **Technologies are contextual metadata** on individual projects and experiments ("built with …"), never a site-level skills inventory. No invented accomplishments, employment, or claims.
 
 ## Infrastructure
 
 - **Canonical domain:** `https://nazprime.com/`
-- **Deployment:** GitHub Pages through GitHub Actions, with a custom domain configured in Pages settings (no committed `CNAME` file). The workflow is not yet written — create it against the current official Hugo/GitHub Pages documentation when the time comes.
+- **Deployment:** GitHub Pages through GitHub Actions (`.github/workflows/hugo.yaml`), with a custom domain configured in Pages settings (no committed `CNAME` file; Actions-based publishing ignores it).
 - **Git:** primary remote is `origin` over SSH (`git@github.com:nishad-prime/nazprime.git`). Generated output (`public/`, `resources/`, `hugo_stats.json`) is never committed.
+- **Content-driven visibility:** collection sections (Projects, Lab, Notes) and their navigation/homepage areas appear only when they contain published content. Standalone pages (Now, About) are always visible. No manual toggles; see `docs/adding-content.md`.

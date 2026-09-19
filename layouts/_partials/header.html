@@ -5,6 +5,13 @@
       <ul class="flex flex-wrap items-baseline gap-x-5 gap-y-1 font-mono text-sm">
         {{ $page := . }}
         {{ range site.Menus.main }}
+        {{ $target := .Page }}
+        {{ $show := false }}
+        {{ if $target }}
+          {{ $show = true }}
+          {{ if eq $target.Kind "section" }}{{ $show = gt (len $target.RegularPagesRecursive) 0 }}{{ end }}
+        {{ end }}
+        {{ if $show }}
         <li>
           {{ if $page.IsMenuCurrent .Menu . }}
           <a href="{{ .URL }}" aria-current="page" class="text-ink">{{ .Name }}</a>
@@ -12,6 +19,7 @@
           <a href="{{ .URL }}" class="text-muted transition-colors duration-150 hover:text-ink">{{ .Name }}</a>
           {{ end }}
         </li>
+        {{ end }}
         {{ end }}
       </ul>
     </nav>

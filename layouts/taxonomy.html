@@ -9,6 +9,8 @@
       <a href="{{ .Page.RelPermalink }}" class="font-medium text-ink underline decoration-rule underline-offset-4 transition-colors duration-150 hover:decoration-accent">{{ .Page.LinkTitle }}</a>
       <span class="font-mono text-sm text-muted">{{ .Count }}</span>
     </li>
+    {{ else }}
+    <li class="border-t border-rule py-3 font-mono text-sm text-muted last:border-b">no tags yet.</li>
     {{ end }}
   </ul>
 </div>
