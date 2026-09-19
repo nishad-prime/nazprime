@@ -180,7 +180,7 @@ Prefer:
 
 The homepage should communicate:
 
-> nazprime — my corner of the internet
+> nazprime, my corner of the internet
 
 and the core phrase:
 
