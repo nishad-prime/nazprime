@@ -1,6 +1,7 @@
 ---
 title: About
 description: The person behind the mess.
+date: 2026-09-18
 ---
 
 I'm Nasir Hossain. nazprime is my corner of the internet — a workshop, a laboratory, and a notebook, all in one.

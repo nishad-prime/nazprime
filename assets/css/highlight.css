@@ -1,4 +1,5 @@
 ﻿/* Generated using: hugo gen chromastyles --style=gruvbox-light */
+/* Manually adjusted: comment tokens #928374 -> #7c6f64 for AA contrast on paper. */
 
 /* Background */ .bg { color:#3c3836; }
 /* PreWrapper */ .chroma { color:#3c3836;-webkit-text-size-adjust:none; }
@@ -51,11 +52,11 @@
 /* Operator */ .chroma .o { color:#af3a03 }
 /* OperatorWord */ .chroma .ow { color:#af3a03 }
 /* OperatorReserved */ .chroma .or { color:#af3a03 }
-/* Comment */ .chroma .c { color:#928374;font-style:italic }
-/* CommentHashbang */ .chroma .ch { color:#928374;font-style:italic }
-/* CommentMultiline */ .chroma .cm { color:#928374;font-style:italic }
-/* CommentSingle */ .chroma .c1 { color:#928374;font-style:italic }
-/* CommentSpecial */ .chroma .cs { color:#928374;font-style:italic }
+/* Comment */ .chroma .c { color:#7c6f64;font-style:italic }
+/* CommentHashbang */ .chroma .ch { color:#7c6f64;font-style:italic }
+/* CommentMultiline */ .chroma .cm { color:#7c6f64;font-style:italic }
+/* CommentSingle */ .chroma .c1 { color:#7c6f64;font-style:italic }
+/* CommentSpecial */ .chroma .cs { color:#7c6f64;font-style:italic }
 /* CommentPreproc */ .chroma .cp { color:#427b58 }
 /* CommentPreprocFile */ .chroma .cpf { color:#427b58;font-style:italic }
 /* GenericDeleted */ .chroma .gd { color:#282828;background-color:#9d0006 }

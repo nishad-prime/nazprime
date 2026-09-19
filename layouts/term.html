@@ -6,7 +6,7 @@
   </header>
   <ol>
     {{ range .Pages }}
-    <li class="flex items-baseline gap-4 border-t border-rule py-4 last:border-b sm:gap-6">
+    <li class="flex items-baseline gap-4 border-t border-rule py-4 last:border-b sm:gap-6 sm:py-5">
       {{ if not .Date.IsZero }}
       <time datetime="{{ .Date.Format "2006-01-02" }}" class="shrink-0 font-mono text-sm text-muted">{{ .Date.Format "2006-01-02" }}</time>
       {{ else }}

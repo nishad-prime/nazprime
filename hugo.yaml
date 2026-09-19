@@ -21,6 +21,10 @@ menus:
     pageRef: /about
     weight: 50
 markup:
+  goldmark:
+    renderHooks:
+      image:
+        useEmbedded: always
   highlight:
     noClasses: false
 build:

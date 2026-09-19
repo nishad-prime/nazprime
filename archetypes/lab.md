@@ -3,6 +3,7 @@ date: '{{ .Date }}'
 draft: true
 title: '{{ replace .File.ContentBaseName `-` ` ` | title }}'
 summary:
+description:
 tags: []
 params:
   # experiment | in progress | unfinished | abandoned

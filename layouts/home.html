@@ -20,7 +20,7 @@
     <div class="prose mt-4">
       {{ .Content }}
     </div>
-    <p class="mt-3 font-mono text-sm"><a href="{{ .RelPermalink }}" class="text-muted transition-colors duration-150 hover:text-accent">→ the full now page</a></p>
+    <p class="mt-3 font-mono text-sm"><a href="{{ .RelPermalink }}" class="text-muted transition-colors duration-150 hover:text-accent">→ the now page</a></p>
   </section>
   {{ end }}
 
@@ -39,9 +39,7 @@
       </li>
       {{ end }}
     </ol>
-    {{ with $projects }}
-    <p class="mt-3 font-mono text-sm"><a href="{{ .RelPermalink }}" class="text-muted transition-colors duration-150 hover:text-accent">→ all projects</a></p>
-    {{ end }}
+    <p class="mt-3 font-mono text-sm"><a href="{{ $projects.RelPermalink }}" class="text-muted transition-colors duration-150 hover:text-accent">→ all projects</a></p>
   </section>
   {{ end }}
   {{ end }}
@@ -63,9 +61,7 @@
       </li>
       {{ end }}
     </ol>
-    {{ with $lab }}
-    <p class="mt-3 font-mono text-sm"><a href="{{ .RelPermalink }}" class="text-muted transition-colors duration-150 hover:text-accent">→ into the lab</a></p>
-    {{ end }}
+    <p class="mt-3 font-mono text-sm"><a href="{{ $lab.RelPermalink }}" class="text-muted transition-colors duration-150 hover:text-accent">→ into the lab</a></p>
   </section>
   {{ end }}
   {{ end }}
@@ -86,9 +82,7 @@
       </li>
       {{ end }}
     </ol>
-    {{ with $notes }}
-    <p class="mt-3 font-mono text-sm"><a href="{{ .RelPermalink }}" class="text-muted transition-colors duration-150 hover:text-accent">→ all notes</a></p>
-    {{ end }}
+    <p class="mt-3 font-mono text-sm"><a href="{{ $notes.RelPermalink }}" class="text-muted transition-colors duration-150 hover:text-accent">→ all notes</a></p>
   </section>
   {{ end }}
   {{ end }}
