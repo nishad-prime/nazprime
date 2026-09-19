@@ -3,6 +3,16 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'content/**'
+      - 'layouts/**'
+      - 'assets/**'
+      - 'static/**'
+      - 'archetypes/**'
+      - 'hugo.yaml'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/hugo.yaml'
   workflow_dispatch:
 permissions:
   contents: read
